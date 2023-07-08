@@ -1,13 +1,20 @@
 # PruebaTecnicaAIA_Jaasiel
-Prueba tecnica para el puesto de intern de backend
+Prueba técnica para el puesto de intern de backend
 
-El proyecto se encuentra en la rama con el nombre master
+El proyecto se encuentra en la rama con el nombre **master**.
 
-Para iniciar el proyecto, debera descargarlo y abrirlo en vsc.
-Abra una terminal para agregar los siguientes comandos:
--npm i
-Este comando lo que hace es instalar todas las dependencias necesarias para poder ejecutar el proyecto,
-ya vienen precargadas en el archivo package.json
--npm run dev
-este comando ejecuta un Script con el comando <nodemon app> para que corra el programa en el puerto 2000
-y la base de datos como en un servicio en la nube se puede acceder a el sin ningun problema.
+## Inicio del proyecto
+Para iniciar el proyecto, deberás descargarlo y abrirlo en Visual Studio Code (VSC). A continuación, sigue estos pasos:
+
+1. Abre una terminal en VSC.
+2. Ejecuta el siguiente comando para instalar todas las dependencias necesarias:
+Esto instalará las dependencias que están especificadas en el archivo package.json.
+
+3. Una vez completada la instalación de las dependencias, ejecuta el siguiente comando para iniciar el programa en modo de desarrollo:
+
+Este comando ejecutará un script que ejecuta el comando `nodemon app`, lo que hará que el programa se ejecute en el puerto 2000.
+
+**Nota:** Asegúrate de que no haya conflictos con otros servicios en tu máquina local que utilicen el puerto 2000.
+
+¡Listo! Ahora podrás acceder al programa y a la base de datos como si estuvieran en un servicio en la nube.
+
