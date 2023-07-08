@@ -1,0 +1,21 @@
+Utilice las depenencias que proporcionan difentes desarrolladores, se mencionan en el package.json.
+
+ "dependencies": {
+    "body-parser": "^1.20.2",
+    "cowsay": "^1.5.0",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+
+body-parser: Para los motodos POST en donde tenemos que extaer por medio de un req.body los datos.
+cowsay: con fines educativos para aprender a usar dependencias
+dotenv: Para las variables de entorno que utilice en una URI para la conexion con ATLAS
+ejs: Para el renderizado de vistas y templates para crear una UI
+express: Para la creacion de los endpoints
+mongoose: Lo utilice para hacer la conexion entre la app y la base de datos que esta en la nube, en este caso quise experimentar con MongoDB ATLAS.
+nodemon: Esta dependencia la utilice solo para desarrollo ya que reinicia el port cada que damos un guardar y facilita la tarea de visualizar los cambios.
