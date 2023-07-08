@@ -1,0 +1,30 @@
+<%- include("template/cabecera.ejs", { tituloWeb : 'Crear nuevo Viaje'}) %>
+
+    <div class="container">
+        <h1>Crear</h1>
+        <form action="/" method="POST">
+            <input 
+                type="text"
+                placeholder="Agregar Direccion"
+                class="form-control my-2"
+                name="direccion"
+                required
+            >
+            <input 
+                type="text"
+                placeholder="Agregar medio de transporte"
+                class="form-control my-2"
+                name="medio"
+                required
+            >
+            <button class="btn btn-success" type="submit">
+                Agregar
+            </button>
+        </form>
+    </div>
+
+
+    <!-- footer plantilla -->
+    <%- include("template/footer.ejs", {footerWeb : 'Este footer es de 404'}) %>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<%- include("template/cabecera.ejs", { tituloWeb : 'Detalle Transporte'}) %>
+
+    <div class="container">
+        <h1>Detalle Transporte</h1>
+        <% if (error) { %>
+            <p><%= mensaje %></p>
+        <% } %>
+        <a href="/" class="btn btn-success">Volver a Transportes</a>
+
+        <% if (!error) { %>
+            <form id="formularioEditar"  data-id="<%= viaje.id %>">
+                <input 
+                    type="text" 
+                    class="form-control my-2" 
+                    name="direccion"
+                    value="<%= viaje.direccion %>"
+                    id="nombreInput"
+                    required>
+                <input 
+                    type="text" 
+                    class="form-control my-2" 
+                    name="medio"
+                    value="<%= viaje.medio %>" 
+                    id="medioInput"
+                    required>
+                <button
+                    class="btn btn-warning btn-sm"
+                    type="submit"
+                   
+                >
+                    Editar
+                </button>
+            </form>
+
+            <hr>
+            <button 
+                class="btn btn-danger btn-sm mt-5" 
+                id="btnEliminar" 
+                data-id="<%= viaje.id %>">
+                    Eliminar
+            </button>
+
+            
+
+        <% } %>
+    </div>
+   <%- include("template/footer.ejs", {footerWeb : 'Este footer es de 404'}) %>
+</body>
+</html>
+
+
+<script>
+    const btnEliminar = document.querySelector('#btnEliminar')
+
+    btnEliminar.addEventListener('click', async() => {
+        //console.log('Me diste click')
+        const id = btnEliminar.dataset.id
+
+        try {
+            const data = await fetch( `../${btnEliminar.dataset.id}` , { method: 'delete' })
+            const res = await data.json()
+        
+            if(res.estado){
+                window.location.href = '/'
+            }else{
+                console.log(res)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    })
+
+    const formEditar = document.querySelector('#formularioEditar');
+
+    formEditar.addEventListener('submit', async(e) => {
+        e.preventDefault()
+        // Alternativa #1 (capturar input)
+        const direccion = formEditar.elements['direccion'].value
+        // Alternativa #2 (capturar input)
+        const medio = document.querySelector('#medioInput').value
+        const id = formEditar.dataset.id 
+
+        const data = await fetch(`/${id}`, {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({direccion, medio})
+        })
+
+        const res = await data.json()
+
+        if(res.estado){
+            window.location.href = '/'
+        }else{
+            console.log(res)
+        }
+
+    })
+</script>

@@ -1,0 +1,46 @@
+<%- include("template/cabecera.ejs", {tituloWeb : 'Empresa de Transportes'}) %>
+
+    <div class="container">
+        <h1>Empresa de transportes</h1>
+
+        <a class="btn btn-success my-4" href="/crear">
+            Crear nuevo Viaje
+        </a>
+        
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Medio</th>
+                <th scope="col">Accion</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% if (arrayViajes.length > 0) { %>
+                    <% arrayViajes.forEach(item => { %>
+
+                        <tr>
+                            <th scope="row"><%= item.id %></th>
+                            <td><%= item.direccion %></td>
+                            <td><%= item.medio %></td>
+                            <td>
+                                <!-- Supones que es de la Raiz -->
+                                <a href="/<%= item.id %>" class="btn btn-warning btn-sm">
+                                    Editar
+                                </a>
+                            </td>
+                        </tr>
+
+                    <% }) %>
+                <% } %>        
+            </tbody>
+          </table>
+
+        
+    </div>
+
+    <!-- footer plantilla -->
+    <%- include("template/footer.ejs", {footerWeb : 'Este footer es de index'}) %>
+</body>
+</html>
